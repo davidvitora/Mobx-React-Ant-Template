@@ -6,8 +6,6 @@ import UserStoreContext from './stores/UserStore'
 function App() {
   const userStore = useContext(UserStoreContext)
 
-  window.Store = userStore
-
   return (
     <div className="App">
       <header className="App-header">
