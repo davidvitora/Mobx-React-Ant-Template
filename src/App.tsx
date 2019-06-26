@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import Root from './components'
-import { observer } from 'mobx-react-lite'
+import { observer, useObserver } from 'mobx-react-lite'
 import UserStoreContext from './stores/UserStore'
 
-function App() {
+export default () => {
   const userStore = useContext(UserStoreContext)
 
-  return (
+  return useObserver(() => (
     <div className="App">
       <header className="App-header">
         <input value={userStore.user.name} onChange={(e)=> { userStore.user.name = e.target.value }}></input>
@@ -14,7 +14,6 @@ function App() {
         <Root/>
       </header>
     </div>
-  );
+  ))
 }
 
-export default observer(App);
