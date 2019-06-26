@@ -1,14 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite'
-import { Button, Form } from 'antd';
-
+import { Layout, Breadcrumb, Button, Form } from 'antd';
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
-import InputTextAnt from './formComponents/InputTextAnt.js'
-import SwitchAnt from './formComponents/SwitchAnt.js'
-import DatePicker from './formComponents/DatePicker.js'
-import AutoComplete from './formComponents/AutoCompleteAnt.js'
+import InputTextAnt from '../components/formComponents/InputTextAnt.js'
+import SwitchAnt from '../components/formComponents/SwitchAnt.js'
+import DatePicker from '../components/formComponents/DatePicker.js'
+import AutoComplete from '../components/formComponents/AutoCompleteAnt.js'
 
 const plugins = {
     dvr: dvr(validatorjs),
@@ -75,11 +74,30 @@ const FormExample = observer(({ form }) => (
         <SwitchAnt formEl={form.$('possuiCarro')} />
         <InputTextAnt formEl={form.$('password')}/>
         <InputTextAnt formEl={form.$('passwordConfirm')}/>
-        <Button onClick={form.onSubmit}>Submit</Button>
-        <Button onClick={form.onClear}>Clear</Button>
+        <Button style={{marginRight: 10}} onClick={form.onSubmit}>Submit</Button>
+        <Button style={{marginRight: 10}} onClick={form.onClear}>Clear</Button>
         <Button onClick={form.onReset}>Reset</Button>
         <p>{form.error}</p>
     </Form>
 ))
 
-export default () =>  <FormExample form={form} /> 
+export default () => (
+    <>
+        <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>Painel</Breadcrumb.Item>
+            <Breadcrumb.Item>Exemplos</Breadcrumb.Item>
+            <Breadcrumb.Item>Formulários</Breadcrumb.Item>
+        </Breadcrumb>
+        <Layout.Content
+            style={{
+            background: '#fff',
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+            }}
+        > 
+            <h4>Demonstração de formulário utilizando Mobx-React-Form</h4>
+            <FormExample form={form} />
+        </Layout.Content>
+    </>
+)
