@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { Input } from 'antd';
-import { Form } from 'antd';
+import { Form, Input } from 'antd';
 
 export default observer(({formEl}) => (
 
