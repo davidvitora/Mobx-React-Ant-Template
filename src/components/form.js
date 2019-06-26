@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite'
+import { Button } from 'antd';
 
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
@@ -53,6 +54,7 @@ const Form = observer(({ form }) => (
         <InputText formEl={form.$('email')}/>
         <InputText formEl={form.$('password')}/>
         <InputText formEl={form.$('passwordConfirm')}/>
+        <Button type="primary">Primary</Button>
         <button type="submit" onClick={form.onSubmit}>Submit</button>
         <button type="button" onClick={form.onClear}>Clear</button>
         <button type="button" onClick={form.onReset}>Reset</button>
