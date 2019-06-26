@@ -1,11 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite'
-import { Button } from 'antd';
+import { Button, Form } from 'antd';
 
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
-import InputText from './formComponents/InputText.js'
+import InputTextAnt from './formComponents/InputTextAnt.js'
 
 const plugins = {
     dvr: dvr(validatorjs),
@@ -48,19 +48,17 @@ const hooks = {
 
 const form = new MobxReactForm({ fields }, { plugins, hooks });
 
-const Form = observer(({ form }) => (
-    <form>
-        <InputText formEl={form.$('username')}/>
-        <InputText formEl={form.$('email')}/>
-        <InputText formEl={form.$('password')}/>
-        <InputText formEl={form.$('passwordConfirm')}/>
-        <Button type="primary">Primary</Button>
-        <button type="submit" onClick={form.onSubmit}>Submit</button>
-        <button type="button" onClick={form.onClear}>Clear</button>
-        <button type="button" onClick={form.onReset}>Reset</button>
-
+const FormExample = observer(({ form }) => (
+    <Form>
+        <InputTextAnt formEl={form.$('username')}/>
+        <InputTextAnt formEl={form.$('email')}/>
+        <InputTextAnt formEl={form.$('password')}/>
+        <InputTextAnt formEl={form.$('passwordConfirm')}/>
+        <Button onClick={form.onSubmit}>Submit</Button>
+        <Button onClick={form.onClear}>Clear</Button>
+        <Button onClick={form.onReset}>Reset</Button>
         <p>{form.error}</p>
-    </form>
+    </Form>
 ))
 
-export default () =>  <Form form={form} /> 
+export default () =>  <FormExample form={form} /> 
