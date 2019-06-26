@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite'
 import UserStore from '../stores/UserStore'
 
 const comp2 = observer(() =>{
-  console.log('again')
   const userStore = useContext(UserStore)
   return (
     <>
