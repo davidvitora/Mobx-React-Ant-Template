@@ -5,7 +5,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import FormExample from './FormExample.js'
 import DataFlowExample from './DataFlowExample.js'
 import Dashboard from './Dashboard.js'
-import Avatar from './components/Avatar/Avatar'
+import Avatar from './components/Avatar'
 
 const { SubMenu } = Menu;
 const { Header, Sider } = Layout;
