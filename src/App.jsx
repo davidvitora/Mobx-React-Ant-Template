@@ -6,13 +6,15 @@ import Login from './routes/login/Login'
 import { PrivateRoute } from './components/util/PrivateRoute'
 
 const fakeAuth = {
-  isAuthenticated: false,
+  isAuthenticated: JSON.parse(localStorage.getItem('isAuthenticated')) || false,
   authenticate(cb) {
     this.isAuthenticated = true
+    localStorage.setItem('isAuthenticated', true)
     setTimeout(cb, 100) // fake async
   },
   signout(cb) {
     this.isAuthenticated = false
+    localStorage.setItem('isAuthenticated', false)
     setTimeout(cb, 100) // fake async
   }
 }

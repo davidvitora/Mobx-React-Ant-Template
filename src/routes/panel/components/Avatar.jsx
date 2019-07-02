@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const menu = (
   <Menu>
-    <Menu.Item key="exit">
+    <Menu.Item onClick={()=>{ localStorage.setItem('isAuthenticated', false) }} key="exit">
       <Link to='/'>
         <Icon type="logout"/>
         <span>Logout</span>
