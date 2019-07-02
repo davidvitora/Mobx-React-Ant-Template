@@ -4,10 +4,10 @@ import { Layout, Breadcrumb, Button, Form } from 'antd';
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
-import InputTextAnt from '../components/formComponents/InputTextAnt.js'
-import SwitchAnt from '../components/formComponents/SwitchAnt.js'
-import DatePicker from '../components/formComponents/DatePicker.js'
-import AutoComplete from '../components/formComponents/AutoCompleteAnt.js'
+import InputTextAnt from '../../components/formComponents/InputTextAnt'
+import SwitchAnt from '../../components/formComponents/SwitchAnt.js'
+import DatePicker from '../../components/formComponents/DatePicker.js'
+import AutoComplete from '../../components/formComponents/AutoCompleteAnt.js'
 
 const plugins = {
     dvr: dvr(validatorjs),

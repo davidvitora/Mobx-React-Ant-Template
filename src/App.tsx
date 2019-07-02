@@ -1,78 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useObserver } from 'mobx-react-lite'
-import { Layout, Menu, Icon } from 'antd';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import FormExample from './panel/FormExample.js'
-import DataFlowExample from './panel/DataFlowExample.js'
-import Dashboard from './panel/Dashboard.js'
-
-const { SubMenu } = Menu;
-const { Header, Sider } = Layout;
+import Panel from './routes/panel/Panel'
+import Login from './routes/login/Login'
 
 export default () => {
-  const [ collapsed, setCollapsed ] = useState(false)
 
   return useObserver(() => (
-    <Layout style={{height:"100vh"}} >
-      <Router>
-        <Sider width={200} style={{ background: '#fff' }} collapsed={collapsed}>
-          <Menu
-            mode="inline"
-            style={{ height: '100%', borderRight: 0 }}
-          >
-            <Menu.Item key="2">
-              <Link to="/">
-                <Icon type="dashboard" />
-                <span>Dashboard</span>
-              </Link>
-            </Menu.Item>
-            <SubMenu
-              key="sub3"
-              title={
-                <span>
-                  <Icon type="notification" />
-                  <span>Exemplos</span>
-                </span>
-              }
-            >
-              <Menu.Item key="9">
-                <Link to="/FormExample">
-                  Formulários
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="10">
-                <Link to="/DataFlowExample">
-                  Fluxo de dados
-                </Link>
-              </Menu.Item>
-            </SubMenu>
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header className="header">
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              style={{ lineHeight: '64px' }}
-            >
-              <Icon
-                className="trigger"
-                type={collapsed ? 'menu-unfold' : 'menu-fold'}
-                onClick={() => { setCollapsed(!collapsed) }}
-              />
-            </Menu>
-          </Header>
-          <Layout style={{ padding: '0 24px 24px' }}>
-            <Switch>
-              <Route exact path="/" component={Dashboard}/>
-              <Route path="/FormExample" component={FormExample}/>
-              <Route path="/DataFlowExample" component={DataFlowExample}/>
-            </Switch>
-          </Layout>
-        </Layout>
-      </Router>
-    </Layout>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Login}/>
+        <Route path="/Panel" component={Panel}/>
+      </Switch>
+    </Router>
   ))
 }
 
