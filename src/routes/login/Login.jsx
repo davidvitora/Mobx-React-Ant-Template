@@ -8,6 +8,7 @@ import DatePicker from '../../components/formComponents/DatePicker.js'
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
+import style from './Login.module.less';
 
 const plugins = {
   dvr: dvr(validatorjs),
@@ -119,14 +120,7 @@ const LoginForm = withRouter(observer((props) => {
   
   return (
     <div
-      style={{
-        height: 'fit-content !important', 
-        width: 300, 
-        margin: 'auto', 
-        marginTop: '50px',
-        backgroundColor: '#FFFFFF',
-        padding: '40px',
-      }} 
+      className={style.loginContainer}
     >
       <Form>
         <InputTextAnt formEl={form.$('username')}/>
