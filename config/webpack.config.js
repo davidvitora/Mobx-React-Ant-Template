@@ -405,7 +405,8 @@ module.exports = function(webpackEnv) {
                   loader: require.resolve('less-loader'),
                   options: {
                     importLoaders: 1,
-                    sourceMap: isEnvProduction && shouldUseSourceMap
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                    javascriptEnabled: true
                   },
                 }
               ],
@@ -430,7 +431,8 @@ module.exports = function(webpackEnv) {
                   loader: require.resolve('less-loader'),
                   options: {
                     importLoaders: 1,
-                    sourceMap: isEnvProduction && shouldUseSourceMap
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                    javascriptEnabled: true
                   },
                 }
               ],
