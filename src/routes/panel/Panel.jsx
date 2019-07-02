@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useObserver } from 'mobx-react-lite'
 import { Layout, Menu, Icon, Dropdown, Button } from 'antd';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import FormExample from './FormExample.js'
 import DataFlowExample from './DataFlowExample.js'
 import Dashboard from './Dashboard.js'
@@ -13,8 +13,8 @@ const menu = (
   <Menu>
     <Menu.Item key="exit">
       <Link to='/'>
-        <Icon type="exit" />
-        Sair
+        <Icon type="logout"/>
+        <span>Logout</span>
       </Link>
     </Menu.Item>
   </Menu>

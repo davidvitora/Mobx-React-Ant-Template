@@ -107,7 +107,10 @@ const LoginForm = withRouter(observer((props) => {
         alert('Form is valid! Send the request here.');
         // get field values
         console.log('Form Values!', form.values());
-        props.history.push('/Panel')
+        props.fakeAuth.authenticate(() => {
+
+        })
+        props.history.push('/panel')
     },
     onError(form) {
         alert('Form has errors!');
@@ -136,11 +139,14 @@ const LoginForm = withRouter(observer((props) => {
 }))
 
 
-export default () => 
-  <Layout style={{height:"100vh"}} >
-    <Layout>
-      <Route exact path="/" component={LoginForm}/>
-      <Route path="/Register" component={RegisterForm}/>
+export default (props) => {
+  return (
+    <Layout style={{height:"100vh"}} >
+      <Layout>
+        <Route exact path={["/", "/login"]} render={ () => <LoginForm fakeAuth={props.fakeAuth} /> }/>
+        <Route path="/register" component={RegisterForm}/>
+      </Layout>
     </Layout>
-  </Layout>
+  )
+}
 
