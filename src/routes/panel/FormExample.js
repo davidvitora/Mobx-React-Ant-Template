@@ -24,19 +24,19 @@ const fields = [{
     placeholder: 'Insert Email',
     rules: 'required|email|string|between:5,25',
 },{
-    name: 'dataNascimento',
-    label: 'Data de nascimento',
-    placeholder: 'Data de nascimento',
+    name: 'birthdate',
+    label: 'Birth Date',
+    placeholder: 'Inform the Birth Date',
     rules: 'required|date',
 },{
-    name: 'pais',
-    label: 'Pais de origem',
-    placeholder: 'Informe seu pais de origem',
+    name: 'country',
+    label: 'Country',
+    placeholder: 'Inform the country',
     rules: 'required|string|between:5,25',
 },{
-    name: 'possuiCarro',
-    label: 'Pais de origem',
-    placeholder: 'Indique se possui carro',
+    name: 'hasCar',
+    label: 'Have a Car?',
+    placeholder: 'Inform if has a car',
     rules: 'required|boolean',
 },{
     name: 'password',
@@ -69,9 +69,9 @@ const FormExample = observer(({ form }) => (
     <Form>
         <InputTextAnt formEl={form.$('username')}/>
         <InputTextAnt formEl={form.$('email')}/>
-        <DatePicker formEl={form.$('dataNascimento')}/>
-        <AutoComplete formEl={form.$('pais')}/>
-        <SwitchAnt formEl={form.$('possuiCarro')} />
+        <DatePicker formEl={form.$('birthdate')}/>
+        <AutoComplete formEl={form.$('country')}/>
+        <SwitchAnt formEl={form.$('hasCar')} />
         <InputTextAnt formEl={form.$('password')}/>
         <InputTextAnt formEl={form.$('passwordConfirm')}/>
         <Button style={{marginRight: 10}} onClick={form.onSubmit}>Submit</Button>
@@ -85,8 +85,8 @@ export default () => (
     <>
         <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Painel</Breadcrumb.Item>
-            <Breadcrumb.Item>Exemplos</Breadcrumb.Item>
-            <Breadcrumb.Item>Formulários</Breadcrumb.Item>
+            <Breadcrumb.Item>Example</Breadcrumb.Item>
+            <Breadcrumb.Item>Simple Form</Breadcrumb.Item>
         </Breadcrumb>
         <Layout.Content
             style={{
@@ -96,7 +96,7 @@ export default () => (
             minHeight: 280,
             }}
         > 
-            <h4>Demonstração de formulário utilizando Mobx-React-Form</h4>
+            <h4>Mobx-React-Form Example</h4>
             <FormExample form={form} />
         </Layout.Content>
     </>

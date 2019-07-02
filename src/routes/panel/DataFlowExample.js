@@ -17,9 +17,9 @@ const Comp2 = observer(() =>{
     const userStore = useContext(UserStore)
     return (
         <>
-        <div>Sobrenome: { userStore.user.surname }</div>
-        <p>Contagem de letras do nome: { userStore.countChar }</p>
-        <Button onClick={() => { userStore.clear() }}>Limpar</Button>
+        <div>Surname: { userStore.user.surname }</div>
+        <p>Name Letter count: { userStore.countChar }</p>
+        <Button onClick={() => { userStore.clear() }}>Clear</Button>
         </>
     );
 })
@@ -31,14 +31,14 @@ const Inputs = observer(() =>{
         <Form.Item>
             <Input
                 value={userStore.user.name}
-                placeholder="Digite o nome da pessoa" 
+                placeholder="Inform the name" 
                 onChange={(e) => { userStore.user.name = e.target.value }}
             />
         </Form.Item>
         <Form.Item>
             <Input
                 value={userStore.user.surname}
-                placeholder="Digite o sobrenome da pessoa" 
+                placeholder="Inform the surname" 
                 onChange={(e) => { userStore.user.surname = e.target.value }}
             />
         </Form.Item>
@@ -50,8 +50,8 @@ export default () => (
     <>
         <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Painel</Breadcrumb.Item>
-            <Breadcrumb.Item>Exemplos</Breadcrumb.Item>
-            <Breadcrumb.Item>Fluxo de dados</Breadcrumb.Item>
+            <Breadcrumb.Item>Examples</Breadcrumb.Item>
+            <Breadcrumb.Item>Data Flow</Breadcrumb.Item>
         </Breadcrumb>
         <Layout.Content
             style={{
@@ -61,7 +61,7 @@ export default () => (
             minHeight: 280,
             }}
         >
-            <h4>Demonstração das funcionalidades do Mobx</h4>
+            <h4>Mobx Example</h4>
             <Form>
                 <Inputs/>
                 <Comp1/>

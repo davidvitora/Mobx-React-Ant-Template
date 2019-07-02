@@ -9,7 +9,7 @@ export default () => {
   return useObserver(() => (
     <Router>
       <Switch>
-        <Route exact path="/" component={Login}/>
+        <Route exact path={["/", "/login", "/register"]} component={Login}/>
         <Route path="/Panel" component={Panel}/>
       </Switch>
     </Router>

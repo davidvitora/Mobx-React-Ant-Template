@@ -15,7 +15,7 @@ export default () => (
             minHeight: 280,
             }}
         > 
-            <h4>Conteudo da dashboard</h4>
+            <h4>Dashboard Content</h4>
         </Layout.Content>
     </>
 )
