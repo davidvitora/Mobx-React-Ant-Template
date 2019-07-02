@@ -1,6 +1,9 @@
 import React from 'react'
-import { Menu, Icon, Dropdown, Button } from 'antd';
+import { Menu, Icon, Dropdown } from 'antd';
 import { Link } from 'react-router-dom'
+import style from './Avatar.module.less'
+
+console.log(style)
 
 const menu = (
   <Menu>
@@ -15,6 +18,6 @@ const menu = (
 
 
 export default () =>
-<Dropdown style={{height: '100%'}} overlay={menu}>
-  <span>Usuário <Icon type="down" /></span>
+<Dropdown overlay={menu}>
+  <span className={style.avatar}> Usuário <Icon type="down" /> </span>
 </Dropdown>
