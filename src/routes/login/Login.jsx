@@ -4,14 +4,9 @@ import { Layout, Button, Form} from 'antd';
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import { InputText, DatePicker } from 'Components/form'
-import dvr from 'mobx-react-form/lib/validators/DVR';
-import MobxReactForm from 'mobx-react-form';
-import validatorjs from 'validatorjs';
+import createForm from 'Util/createForm'
 import style from './Login.module.less';
 
-const plugins = {
-  dvr: dvr(validatorjs),
-};
 
 const RegisterForm = withRouter(observer((props) => {
 
@@ -44,19 +39,11 @@ const RegisterForm = withRouter(observer((props) => {
 
   const hooks = {
     onSuccess(form) {
-        alert('Form is valid! Send the request here.');
-        // get field values
-        console.log('Form Values!', form.values());
         props.history.push('/Panel')
-    },
-    onError(form) {
-        alert('Form has errors!');
-        // get all form errors
-        console.log('All form errors', form.errors());
     }
   }
 
-  const formRegister = new MobxReactForm({ fields }, { plugins, hooks });
+  const formRegister = createForm({ fields }, { hooks });
   
   return (
     <div
@@ -103,22 +90,14 @@ const LoginForm = withRouter(observer((props) => {
 
   const hooks = {
     onSuccess(form) {
-        alert('Form is valid! Send the request here.');
-        // get field values
-        console.log('Form Values!', form.values());
         props.fakeAuth.authenticate(() => {
 
         })
         props.history.push('/panel')
-    },
-    onError(form) {
-        alert('Form has errors!');
-        // get all form errors
-        console.log('All form errors', form.errors());
     }
   }
 
-  const form = new MobxReactForm({ fields }, { plugins, hooks });
+  const form = createForm({ fields }, { hooks });
   
   return (
     <div

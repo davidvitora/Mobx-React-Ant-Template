@@ -1,71 +1,62 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite'
 import { Layout, Breadcrumb, Button, Form } from 'antd';
-import dvr from 'mobx-react-form/lib/validators/DVR';
-import MobxReactForm from 'mobx-react-form';
-import validatorjs from 'validatorjs';
 import { AutoComplete, DatePicker, InputText, Switch, RadioGroup } from 'Components/form'
+import createForm from 'Util/createForm'
 
-const plugins = {
-    dvr: dvr(validatorjs),
-};
-
-const fields = [{
-    name: 'username',
-    label: 'Username',
-    placeholder: 'Insert User',
-    rules: 'required|string|between:5,25',
-},{
-    name: 'email',
-    label: 'Email',
-    placeholder: 'Insert Email',
-    rules: 'required|email|string|between:5,25',
-},{
-    name: 'birthdate',
-    label: 'Birth Date',
-    placeholder: 'Inform the Birth Date',
-    rules: 'required|date',
-},{
-    name: 'country',
-    label: 'Country',
-    placeholder: 'Inform the country',
-    rules: 'required|string|between:5,25',
-},{
-    name: 'hasCar',
-    label: 'Have a Car?',
-    placeholder: 'Inform if has a car',
-    rules: 'required|boolean',
-},{
-    name: 'gender',
-    label: 'Gender',
-    placeholder: 'Please choose your gender',
-    rules: 'required|string|in:m,s',
-},{
-    name: 'password',
-    label: 'Password',
-    placeholder: 'Insert Password',
-    rules: 'required|string|between:5,25',
-}, {
-    name: 'passwordConfirm',
-    label: 'Password Confirmation',
-    placeholder: 'Confirm Password',
-    rules: 'required|string|same:password',
-}];
-
-const hooks = {
-    onSuccess(form) {
-        alert('Form is valid! Send the request here.');
-        // get field values
-        console.log('Form Values!', form.values());
-    },
-    onError(form) {
-        alert('Form has errors!');
-        // get all form errors
-        console.log('All form errors', form.errors());
+const form = createForm({ 
+    fields: [
+        {
+            name: 'username',
+            label: 'Username',
+            placeholder: 'Insert User',
+            rules: 'required|string|between:5,25',
+        },{
+            name: 'email',
+            label: 'Email',
+            placeholder: 'Insert Email',
+            rules: 'required|email|string|between:5,25',
+        },{
+            name: 'birthdate',
+            label: 'Birth Date',
+            placeholder: 'Inform the Birth Date',
+            rules: 'required|date',
+        },{
+            name: 'country',
+            label: 'Country',
+            placeholder: 'Inform the country',
+            rules: 'required|string|between:5,25',
+        },{
+            name: 'hasCar',
+            label: 'Have a Car?',
+            placeholder: 'Inform if has a car',
+            rules: 'required|boolean',
+        },{
+            name: 'gender',
+            label: 'Gender',
+            placeholder: 'Please choose your gender',
+            rules: 'required|string|in:m,s',
+        },{
+            name: 'password',
+            label: 'Password',
+            placeholder: 'Insert Password',
+            rules: 'required|string|between:5,25',
+        },{
+            name: 'passwordConfirm',
+            label: 'Password Confirmation',
+            placeholder: 'Confirm Password',
+            rules: 'required|string|same:password',
+        }
+    ]
+}, 
+{   
+    hooks: {
+        onError(form) {
+            alert('The form is not valid, check the errors in the console');
+            console.log('All form errors', form.errors());
+        }
     }
-}
-
-const form = new MobxReactForm({ fields }, { plugins, hooks });
+});
 
 const FormExample = observer(({ form }) => (
     <Form>
