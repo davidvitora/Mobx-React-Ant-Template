@@ -9,7 +9,13 @@ export default observer(({ children, form }) => {
         <Form>
             { children.map( child => {
                 return child.props.name
-                ? React.cloneElement(child, { formEl: form.$(child.props.name) })
+                ? 
+                <Form.Item 
+                    validateStatus={form.$(child.props.name).error ? 'error' : ''} 
+                    help={form.$(child.props.name).error || ''}
+                >
+                    { React.cloneElement(child, { formEl: form.$(child.props.name) }) }
+                </Form.Item>
                 : child
             }) }
         </Form>

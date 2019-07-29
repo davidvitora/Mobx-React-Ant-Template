@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { Form, Radio } from 'antd';
+import { Radio } from 'antd';
 
 
 export default observer((props) => {
@@ -10,18 +10,14 @@ export default observer((props) => {
 
     return (
         <div className={computedClassName}>
-            <label>{formEl.label}</label>
-            <Form.Item validateStatus={formEl.error ? 'error' : ''} help={formEl.error || ''}>
-                {(
-                    <Radio.Group onChange={formEl.onChange} value={formEl.value}>
-                        {
-                            props.options.map( option =>
-                                <Radio key={option.value} value={option.value}>{option.display}</Radio>
-                            )
-                        }
-                    </Radio.Group>
-                )}
-            </Form.Item>
+            <label>{formEl.label}</label><br/>
+            <Radio.Group onChange={formEl.onChange} value={formEl.value}>
+                {
+                    props.options.map( option =>
+                        <Radio key={option.value} value={option.value}>{option.display}</Radio>
+                    )
+                }
+            </Radio.Group>
         </div>
     )
 })

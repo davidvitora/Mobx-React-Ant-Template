@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { Form, DatePicker } from 'antd';
+import { DatePicker } from 'antd';
 
 export default observer((props) => {
 
@@ -20,15 +20,11 @@ export default observer((props) => {
     const computedClassName = `${"light" in props ? "hp-input-light" : ""} ${props.className ? props.className : ''}`
 
     return (
-        <Form.Item validateStatus={formEl.error ? 'error' : ''} help={formEl.error || ''}>
-            {(
-                <DatePicker
-                    placeholder={formEl.placeholder}
-                    onChange={onChange}
-                    {...componentProps}
-                    className={computedClassName}
-                />
-            )}
-        </Form.Item>
-    )
+        <DatePicker
+            placeholder={formEl.placeholder}
+            onChange={onChange}
+            {...componentProps}
+            className={computedClassName}
+        />
+)
 })

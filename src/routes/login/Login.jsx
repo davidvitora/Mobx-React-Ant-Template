@@ -1,9 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite'
-import { Layout, Button, Form} from 'antd';
+import { Layout, Button } from 'antd';
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import { InputText, DatePicker } from 'Components/form'
+import { InputText, DatePicker, Form } from 'Components/form'
 import createForm from 'Util/createForm'
 import style from './Login.module.less';
 
@@ -103,9 +103,9 @@ const LoginForm = withRouter(observer((props) => {
     <div
       className={style.loginContainer}
     >
-      <Form>
-        <InputText formEl={form.$('username')}/>
-        <InputText formEl={form.$('password')}/>
+      <Form form={form}>
+        <InputText name='username'/>
+        <InputText name='password'/>
         <Button style={{marginRight: 10}} onClick={form.onSubmit}>Login</Button>
         <p>{form.error}</p>
       </Form>
