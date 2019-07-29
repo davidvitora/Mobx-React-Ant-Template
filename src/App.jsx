@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader/root';
 import { useObserver } from 'mobx-react-lite'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Panel from './routes/panel/Panel'
@@ -20,7 +21,7 @@ const fakeAuth = {
 }
 
 
-export default () => {
+const App = () => {
 
   return useObserver(() => (
     <Router>
@@ -33,3 +34,4 @@ export default () => {
 
 }
 
+export default hot(App);

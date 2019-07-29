@@ -353,6 +353,8 @@ module.exports = function(webpackEnv) {
                       },
                     },
                   ],
+                  [ "react-hot-loader/babel" ],
+                  ["import", { "libraryName": "antd", "style": false }]
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
