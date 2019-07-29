@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { Layout, Breadcrumb, Input, Button, Form } from 'antd';
 import { observer } from 'mobx-react-lite';
-import UserStore from '../../stores/UserStore';
+import UserStore from 'Stores/UserStore';
 
 
 //Os três componentes abaixos são observadores

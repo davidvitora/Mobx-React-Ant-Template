@@ -4,7 +4,7 @@ import { useObserver } from 'mobx-react-lite'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Panel from './routes/panel/Panel'
 import Login from './routes/login/Login'
-import { PrivateRoute } from './components/util/PrivateRoute'
+import { PrivateRoute } from 'Components/util/PrivateRoute'
 
 const fakeAuth = {
   isAuthenticated: JSON.parse(localStorage.getItem('isAuthenticated')) || false,

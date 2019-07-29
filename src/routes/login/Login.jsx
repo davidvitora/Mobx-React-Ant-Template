@@ -3,8 +3,7 @@ import { observer } from 'mobx-react-lite'
 import { Layout, Button, Form} from 'antd';
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import InputTextAnt from '../../components/formComponents/InputTextAnt'
-import DatePicker from '../../components/formComponents/DatePicker.js'
+import { InputText, DatePicker } from 'Components/form'
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
@@ -73,11 +72,11 @@ const RegisterForm = withRouter(observer((props) => {
       <h2 style={{textAlign: 'center'}}>Register Form</h2>
       <small>Insert and send the informations bellow to create your new account.</small>
       <Form style={{marginTop: 20}}>
-        <InputTextAnt formEl={formRegister.$('username')}/>
-        <InputTextAnt formEl={formRegister.$('email')}/>
+        <InputText formEl={formRegister.$('username')}/>
+        <InputText formEl={formRegister.$('email')}/>
         <DatePicker formEl={formRegister.$('birthdate')}/>
-        <InputTextAnt formEl={formRegister.$('password')}/>
-        <InputTextAnt formEl={formRegister.$('passwordConfirm')}/>
+        <InputText formEl={formRegister.$('password')}/>
+        <InputText formEl={formRegister.$('passwordConfirm')}/>
         <Button style={{marginRight: 10}} onClick={formRegister.onSubmit}>Send</Button>
         <p>{formRegister.error}</p>
       </Form>
@@ -126,8 +125,8 @@ const LoginForm = withRouter(observer((props) => {
       className={style.loginContainer}
     >
       <Form>
-        <InputTextAnt formEl={form.$('username')}/>
-        <InputTextAnt formEl={form.$('password')}/>
+        <InputText formEl={form.$('username')}/>
+        <InputText formEl={form.$('password')}/>
         <Button style={{marginRight: 10}} onClick={form.onSubmit}>Login</Button>
         <p>{form.error}</p>
       </Form>

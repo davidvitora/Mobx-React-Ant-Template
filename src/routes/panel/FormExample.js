@@ -4,10 +4,7 @@ import { Layout, Breadcrumb, Button, Form } from 'antd';
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
-import InputTextAnt from '../../components/formComponents/InputTextAnt'
-import SwitchAnt from '../../components/formComponents/SwitchAnt.js'
-import DatePicker from '../../components/formComponents/DatePicker.js'
-import AutoComplete from '../../components/formComponents/AutoCompleteAnt.js'
+import { AutoComplete, DatePicker, InputText, Switch } from 'Components/form'
 
 const plugins = {
     dvr: dvr(validatorjs),
@@ -67,13 +64,13 @@ const form = new MobxReactForm({ fields }, { plugins, hooks });
 
 const FormExample = observer(({ form }) => (
     <Form>
-        <InputTextAnt formEl={form.$('username')}/>
-        <InputTextAnt formEl={form.$('email')}/>
+        <InputText formEl={form.$('username')}/>
+        <InputText formEl={form.$('email')}/>
         <DatePicker formEl={form.$('birthdate')}/>
         <AutoComplete formEl={form.$('country')}/>
-        <SwitchAnt formEl={form.$('hasCar')} />
-        <InputTextAnt formEl={form.$('password')}/>
-        <InputTextAnt formEl={form.$('passwordConfirm')}/>
+        <Switch formEl={form.$('hasCar')} />
+        <InputText formEl={form.$('password')}/>
+        <InputText formEl={form.$('passwordConfirm')}/>
         <Button style={{marginRight: 10}} onClick={form.onSubmit}>Submit</Button>
         <Button style={{marginRight: 10}} onClick={form.onClear}>Clear</Button>
         <Button onClick={form.onReset}>Reset</Button>
