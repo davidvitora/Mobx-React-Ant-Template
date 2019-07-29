@@ -4,7 +4,7 @@ import { Layout, Breadcrumb, Button, Form } from 'antd';
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
-import { AutoComplete, DatePicker, InputText, Switch } from 'Components/form'
+import { AutoComplete, DatePicker, InputText, Switch, RadioGroup } from 'Components/form'
 
 const plugins = {
     dvr: dvr(validatorjs),
@@ -35,6 +35,11 @@ const fields = [{
     label: 'Have a Car?',
     placeholder: 'Inform if has a car',
     rules: 'required|boolean',
+},{
+    name: 'gender',
+    label: 'Gender',
+    placeholder: 'Please choose your gender',
+    rules: 'required|string|in:m,s',
 },{
     name: 'password',
     label: 'Password',
@@ -69,6 +74,13 @@ const FormExample = observer(({ form }) => (
         <DatePicker formEl={form.$('birthdate')}/>
         <AutoComplete formEl={form.$('country')}/>
         <Switch formEl={form.$('hasCar')} />
+        <RadioGroup 
+            options={[
+                {value: 'm', display: 'Male'} , 
+                {value:'f', display: 'Female'}
+            ]} 
+            formEl={form.$('gender')}
+        />
         <InputText formEl={form.$('password')}/>
         <InputText formEl={form.$('passwordConfirm')}/>
         <Button style={{marginRight: 10}} onClick={form.onSubmit}>Submit</Button>

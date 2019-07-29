@@ -2,7 +2,11 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { Form, DatePicker } from 'antd';
 
-export default observer(({formEl, stringDate}) => {
+export default observer((props) => {
+
+    const formEl = props.formEl
+    let componentProps = { ...props }
+    delete componentProps.formEl
 
     //Caso o campo possuir a regra de ser uma string, será retornado o texto da data
     function onChange(moment) {
@@ -13,12 +17,16 @@ export default observer(({formEl, stringDate}) => {
         }
     }
 
+    const computedClassName = `${"light" in props ? "hp-input-light" : ""} ${props.className ? props.className : ''}`
+
     return (
         <Form.Item validateStatus={formEl.error ? 'error' : ''} help={formEl.error || ''}>
             {(
                 <DatePicker
                     placeholder={formEl.placeholder}
                     onChange={onChange}
+                    {...componentProps}
+                    className={computedClassName}
                 />
             )}
         </Form.Item>
