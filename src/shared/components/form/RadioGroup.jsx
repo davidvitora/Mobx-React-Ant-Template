@@ -10,7 +10,7 @@ export default observer((props) => {
 
     return (
         <div className={computedClassName}>
-            <label>{formEl.label}</label><br/>
+            <label style={{display: 'block', lineHeight: '10pt'}}>{formEl.label}</label>
             <Radio.Group onChange={formEl.onChange} value={formEl.value}>
                 {
                     props.options.map( option =>

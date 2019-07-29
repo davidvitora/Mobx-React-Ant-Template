@@ -4,7 +4,7 @@ import { Switch } from 'antd';
 
 export default observer(({formEl}) => (
     <>
-        <label>{formEl.label}</label><br/>
+        <label style={{display: 'block', lineHeight: '10pt'}}>{formEl.label}</label>
         <Switch
             placeholder={formEl.label}
             {...formEl.bind()}
